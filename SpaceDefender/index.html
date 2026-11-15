@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Defender</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            color: #eef7ff;
+            background: radial-gradient(circle at top, #14264a, #050812 65%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .game-wrapper { width: min(860px, 96vw); }
+
+        h1 {
+            margin: 0 0 12px;
+            color: #76ddff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .panel {
+            padding: 28px;
+            border: 1px solid #315287;
+            border-radius: 12px;
+            background: rgba(7, 15, 31, 0.92);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .instructions { color: #b8cae5; line-height: 1.6; }
+
+        input, button {
+            padding: 11px 15px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input {
+            width: min(280px, 80vw);
+            color: #eef7ff;
+            border: 1px solid #416aa2;
+            outline: none;
+            background: #0b1830;
+        }
+
+        button {
+            margin-left: 8px;
+            color: #06101f;
+            border: 0;
+            background: #76ddff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background: #a2eaff; }
+        button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        #game-screen[hidden], #start-screen[hidden], button[hidden] { display: none; }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 2px solid #315287;
+            border-radius: 8px;
+            background: #02050c;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        #restart-button { margin: 15px 0 0; }
+
+    </style>
+</head>
+<body>
+    <main class="game-wrapper">
+        <section id="start-screen" class="panel">
+            <h1>Space Defender</h1>
+            <p class="instructions">
+                Destroy the incoming asteroids before you lose all three lives.<br>
+                Move with Arrow keys or WASD and shoot with Space.
+            </p>
+            <label for="player-name">Player name</label><br><br>
+            <input id="player-name" type="text" placeholder="Enter your name">
+            <button id="start-button" disabled>Start Game</button>
+        </section>
+
+        <section id="game-screen" hidden>
+            <h1>Space Defender</h1>
+            <canvas id="game" width="800" height="500"></canvas>
+            <button id="restart-button" hidden>Restart</button>
+        </section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+export const Position = (x, y) => ({x, y});
+export const Velocity = (dx, dy) => ({dx, dy});
+export const Renderable = (shape, color, size) => ({shape, color, size});
+export const Player = name => ({name});
+export const Asteroid = () => ({});
+export const Bullet = () => ({});
+export const Collider = radius => ({radius});
+export const Score = value => ({value});
+export const Lives = value => ({value});
+export const Controls = shooting => ({shooting});
